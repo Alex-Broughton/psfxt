@@ -84,12 +84,13 @@ def simulate(fwhm_func, params):
         # Get single exposure stats
         print(np.sum(image.array))
         image_stats[n] = get_image_stats(image)
+        print(image_stats[n])
         image_mean += image.array
         
     image_mean /= niter
     
-    final_stats = np.mean(image_stats, axis=1)
-    final_stats_errs = np.std(image_stats, axis=1) / np.sqrt(niter)
+    final_stats = np.mean(image_stats, axis=0)
+    final_stats_errs = np.std(image_stats, axis=0) / np.sqrt(niter)
     
     output = dict()
     output['image_mean'] = image_mean

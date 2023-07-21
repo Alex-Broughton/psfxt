@@ -18,6 +18,6 @@ echo "Loaded rubin/sw/tag/w_2023_27/loadLSST.bash"
 
 cd /sdf/home/a/abrought/simulated/psfxt
 
-python run.py $SLURM_ARRAY_TASK_ID
+python run_v2.py $SLURM_ARRAY_TASK_ID
 
 # END

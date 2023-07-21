@@ -27,7 +27,7 @@ if __name__ == '__main__':
     params = dict()
     params['niter'] = 1000
     params['imsize'] = (25,25)
-    params['source_sigma'] = 4.5
+    params['source_sigma'] = 0.2
     params['bf_strength'] = 1.0
     params['diffusion_factor'] = 1.0
     params['total_flux'] = flux_list[job_id-1]
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         fwhm = (1. - .75)/15.*t + .75
         return fwhm / pixscale
     
-    outfile_prefix = "./output/large2small"
+    outfile_prefix = "./output/small2large"
     
     result = run(params, fwhm, outfile_prefix, sys.argv[1])
 

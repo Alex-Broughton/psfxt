@@ -15,7 +15,7 @@ def run(params, func, outfile_prefix, sim_num):
     with open(f'{outfile_prefix}-process-{sim_num}.pkl', 'wb') as handle:
         pkl.dump(output, handle)
     
-    return
+    return output
     
 if __name__ == '__main__':
     
@@ -27,8 +27,8 @@ if __name__ == '__main__':
     params = dict()
     params['niter'] = 1000
     params['imsize'] = (25,25)
-    params['source_sigma'] = 4.5
-    params['bf_strength'] = 10.0
+    params['source_sigma'] = 0.2
+    params['bf_strength'] = 1.0
     params['diffusion_factor'] = 1.0
     params['total_flux'] = flux_list[job_id-1]
     params['nrecalc'] = 100
@@ -39,11 +39,12 @@ if __name__ == '__main__':
     # Gaussian PSF(t)
     def fwhm(t):
         # Grows from 0.75" to 1" over 15s
+        t = 15. - t
         pixscale = 0.2 # "/px
         fwhm = (1. - .75)/15.*t + .75
         return fwhm / pixscale
     
-    outfile_prefix = "./output/small2large_bfstrength_10"
+    outfile_prefix = "./output/large2small"
     
     result = run(params, fwhm, outfile_prefix, sys.argv[1])
 

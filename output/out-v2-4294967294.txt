@@ -1,0 +1,2 @@
+Starting sim #
+Loaded rubin/sw/tag/w_2023_27/loadLSST.bash
